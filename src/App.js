@@ -1,24 +1,32 @@
-import logo from './logo.svg';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import { Container, Row, Col } from 'react-bootstrap';
+import LeadForm from './LeadForm/LeadForm';
+import CaseForm from './CaseForm/CaseForm';
+import logo from './mercedes.svg';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container className="App">
+      <Row className="p-2">
+        <Col md={{ span: 8, offset: 4 }}>
+          <h2>
+            <img src={logo} className="mercedes-logo" alt="logo" />
+            The best or nothing
+          </h2>
+        </Col>
+      </Row>
+      <Row>
+        <Col xs={12} sm={6}>
+          <h3>Lead Form</h3>
+          <LeadForm />
+        </Col>
+        <Col xs={12} sm={6}>
+          <h3>Case Form</h3>
+          <CaseForm />
+        </Col>
+      </Row>
+    </Container>
   );
 }
 
