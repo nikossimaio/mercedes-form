@@ -4,6 +4,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import LeadForm from './LeadForm/LeadForm';
 import CaseForm from './CaseForm/CaseForm';
 import logo from './mercedes.svg';
+import logo_text from './mercedes_text.svg';
 
 function App() {
   return (
@@ -11,11 +12,9 @@ function App() {
       <Row className="p-2">
         <Col md={{ span: 8, offset: 4 }}>
           <h2>
-            <img src={logo} className="mercedes-logo" alt="logo" />
-            Mercedes-Benz
+            <img src={logo} className="mercedes-logo px-4" alt="logo" />
+            <img src={logo_text} className="mercedes-logo w-25" alt="logo_text" />
           </h2>
-          <br />
-          <span>The best or nothing</span>
         </Col>
       </Row>
       <Row>
