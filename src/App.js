@@ -12,8 +12,10 @@ function App() {
         <Col md={{ span: 8, offset: 4 }}>
           <h2>
             <img src={logo} className="mercedes-logo" alt="logo" />
-            Mercedes-Benz <br /> The best or nothing
+            Mercedes-Benz
           </h2>
+          <br />
+          <span>The best or nothing</span>
         </Col>
       </Row>
       <Row>
