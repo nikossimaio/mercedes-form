@@ -4,7 +4,7 @@ import { Form, Button, Alert } from 'react-bootstrap';
 import axios from 'axios';
 
 const LeadForm = () => {
-  const [failed, setFailed] = useState(false)
+  const [formStatus, setFormStatus] = useState({ success: null, fail: false })
   const {
     register,
     handleSubmit,
@@ -15,13 +15,13 @@ const LeadForm = () => {
     const url='';
     const response = await axios.post(url, data)
     console.log(response);
+    if (response === "200" ) {
+      setFormStatus({ success: true, fail: false });
+    }
   };
 
   return (
     <>
-    <Alert variant='danger'>
-      This is a alert—check it out!
-    </Alert>
       <Form className="border border-secondary p-3" onSubmit={handleSubmit(onSubmit)}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Account Id</Form.Label>
@@ -48,6 +48,14 @@ const LeadForm = () => {
           Submit
         </Button>
       </Form>
+      {formStatus.success && <Alert variant='success'>
+        Your form was successfully submited!
+      </Alert>
+      }
+      {formStatus.fail && <Alert variant='danger'>
+        Failed! Incorect Data.
+      </Alert>
+      }
     </>
   )
 }

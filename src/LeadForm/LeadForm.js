@@ -1,16 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, Alert } from 'react-bootstrap';
+import axios from 'axios';
 
 const LeadForm = () => {
+  const [formStatus, setFormStatus] = useState({ success: null, fail: false })
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+
+  const onSubmit = async (data) => {
+    const url='';
+    const response = await axios.post(url, data)
+    console.log(response);
+    if (response === "200" ) {
+      setFormStatus({ success: true, fail: false });
+    }
+  };
 
   return (
+    <>
     <Form className="border border-secondary p-3" onSubmit={handleSubmit(onSubmit)}>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Retail Name</Form.Label>
@@ -32,6 +44,11 @@ const LeadForm = () => {
         Submit
       </Button>
     </Form>
+    {formStatus.success && <Alert variant='success'>
+      Your form was successfully submited!
+    </Alert>
+    }
+    </>
   )
 }
 
