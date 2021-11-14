@@ -12,7 +12,7 @@ const LeadForm = () => {
   } = useForm();
 
   const onSubmit = async (data) => {
-    const url='';
+    const url='https://cunning-goat-blyser-dev-ed.my.salesforce.com/services/apexrest/Form/newCase';
     const response = await axios.post(url, data)
     console.log(response);
     if (response === "200" ) {
