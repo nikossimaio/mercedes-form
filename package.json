@@ -1,6 +1,5 @@
 {
   "name": "mercedes-form",
-  "proxy": "https://cunning-goat-blyser-dev-ed.my.salesforce.com/services/apexrest/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
